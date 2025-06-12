@@ -311,7 +311,7 @@ De maneira geral, o main.c configura o hardware, prepara o cenário para o FreeR
 
 # Resultado obtido
 
-[Clique aqui e baixe um vídeo de demonstração do projeto](video/tarefartos.mp4)
+[Clique aqui e baixe um vídeo de demonstração do projeto](https://github.com/EmbarcaTech-2025/tarefa-freertos-1-CarlosMartinezPerez/blob/main/video/tarefartos.mp4)
 
 
 # Reflexões finais
