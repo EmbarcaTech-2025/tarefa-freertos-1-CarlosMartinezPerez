@@ -311,7 +311,7 @@ De maneira geral, o main.c configura o hardware, prepara o cenário para o FreeR
 
 # Resultado obtido
 
-[Clique aqui e baixe um vídeo de demonstração do projeto](video/tarefartos.mp4)
+[Clique aqui e baixe o vídeo de demonstração do projeto](video/tarefartos.mp4)
 
 
 # Reflexões finais
