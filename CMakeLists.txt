@@ -17,17 +17,17 @@ set(PICO_BOARD pico CACHE STRING "Board type")
 cmake_minimum_required(VERSION 3.12)
 
 # Set any variables required for importing libraries
-if (DEFINED ENV{FREERTOS_PATH})
-  SET(FREERTOS_PATH $ENV{FREERTOS_PATH})
+if (DEFINED ENV{FREERTOS_KERNEL_PATH})
+  SET(FREERTOS_KERNEL_PATH $ENV{FREERTOS_KERNEL_PATH})
 else()
-  SET(FREERTOS_PATH ${CMAKE_CURRENT_LIST_DIR}/FreeRTOS-Kernel)
+  SET(FREERTOS_KERNEL_PATH ${CMAKE_CURRENT_LIST_DIR}/FreeRTOS-Kernel)
 endif()
 
-message("FreeRTOS Kernel located in ${FREERTOS_PATH}")
+message("FreeRTOS Kernel located in ${FREERTOS_KERNEL_PATH}")
 
 # Import those libraries
 include(pico_sdk_import.cmake)
-include(${FREERTOS_PATH}/portable/ThirdParty/GCC/RP2040/FreeRTOS_Kernel_import.cmake)
+include(${FREERTOS_KERNEL_PATH}/portable/ThirdParty/GCC/RP2040/FreeRTOS_Kernel_import.cmake)
 
 # Define project
 project(embarcatech-freertos-tarefa-1 C CXX ASM)
@@ -36,13 +36,18 @@ project(embarcatech-freertos-tarefa-1 C CXX ASM)
 pico_sdk_init()
 
 add_executable(embarcatech-freertos-tarefa-1
-    main.c
+    src/main.c
+    oled/ssd1306.c
 )
 
 target_include_directories(embarcatech-freertos-tarefa-1 PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}
     ${CMAKE_CURRENT_LIST_DIR}/include
+    ${CMAKE_CURRENT_LIST_DIR}/oled
 )
+
+#pico_enable_stdio_usb(embarcatech-freertos-tarefa-1 1)
+
 
 target_link_libraries(embarcatech-freertos-tarefa-1 
     pico_stdlib 
